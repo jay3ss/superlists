@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+from dotenv import load_dotenv
+
+
+load_dotenv() # take environment variables from .env
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ytz$vmua(g@a@_5g61^f%dj5s8oi_-4o6f&eyn0=n$*a*kx9yw'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'a super secret key ;)')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
